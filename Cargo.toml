@@ -41,3 +41,8 @@ rstest = "0.21.0"
 
 [workspace.lints.rust]
 missing_docs = "warn"
+
+# The profile that 'cargo dist' will build with
+[profile.dist]
+inherits = "release"
+lto = "thin"
