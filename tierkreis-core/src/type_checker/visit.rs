@@ -17,7 +17,7 @@ pub(super) struct Visitor<'a> {
     pub variables: HashMap<TypeVar, (TypeId, Kind)>,
 }
 
-impl<'a> Visitor<'a> {
+impl Visitor<'_> {
     pub fn visit_graph_with_inputs(
         &mut self,
         gwi: &GraphWithInputs,

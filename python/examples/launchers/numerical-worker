@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+printf "\n\n------ NUMERICAL WORKER ------"
+
+LAUNCHER_DIR=$(dirname "$0")
+uv run "$LAUNCHER_DIR/../numerical-worker" $1

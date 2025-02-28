@@ -6,6 +6,7 @@
     pkgs.protobuf3_21
     pkgs.just
     pkgs.graphviz
+    pkgs.jq
   ] ++ lib.optionals pkgs.stdenv.isDarwin (with pkgs.darwin.apple_sdk; [
     frameworks.CoreServices
     frameworks.CoreFoundation

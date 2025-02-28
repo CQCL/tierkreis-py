@@ -1251,7 +1251,7 @@ wheels = [
 
 [[package]]
 name = "tierkreis"
-version = "0.7.2"
+version = "0.7.3"
 source = { editable = "python" }
 dependencies = [
     { name = "betterproto", extra = ["compiler"] },
@@ -1289,6 +1289,8 @@ dev = [
     { name = "numpy" },
     { name = "opentelemetry-exporter-otlp" },
     { name = "opentelemetry-sdk" },
+    { name = "pytest" },
+    { name = "pytest-asyncio" },
     { name = "pytket" },
     { name = "tierkreis-typecheck" },
 ]
@@ -1314,7 +1316,11 @@ requires-dist = [
 
 [package.metadata.requires-dev]
 build = [{ name = "build", extras = ["uv"] }]
-dev = [{ name = "tierkreis", extras = ["telemetry", "typecheck", "docker", "sc22-example", "commontypes"] }]
+dev = [
+    { name = "pytest", specifier = ">=8.3.3" },
+    { name = "pytest-asyncio", specifier = ">=0.16.0" },
+    { name = "tierkreis", extras = ["telemetry", "typecheck", "docker", "sc22-example", "commontypes"] },
+]
 
 [[package]]
 name = "tierkreis-typecheck"

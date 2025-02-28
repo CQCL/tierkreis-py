@@ -21,6 +21,7 @@ from typing import (
 
 import betterproto
 import networkx as nx
+from networkx.classes.multidigraph import MultiDiGraph
 
 import tierkreis.core.protos.tierkreis.v1alpha1.graph as pg
 from tierkreis.core.function import FunctionName
@@ -302,7 +303,7 @@ class TierkreisGraph:
     def __init__(self, name: str = "") -> None:
         """Create an empty graph with an optional name."""
         self.name = name
-        self._graph = nx.MultiDiGraph()
+        self._graph = MultiDiGraph()
         inp = self.add_node(InputNode())
         assert inp.idx == self.input_node_idx
         output = self.add_node(OutputNode())

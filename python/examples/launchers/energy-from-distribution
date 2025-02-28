@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+LAUNCHER_DIR=$(dirname "$0")
+printf "\n\n------ ENERGY FROM DISTRIBUTION ------"
+INPUT_FILE=$(cat "$1" | jq -r '.inputs.distribution')
+OUTPUT_FILE=$(cat "$1" | jq -r '.outputs.value')
+DONE_FILE=$(cat "$1" | jq -r '.done_path')
+
+echo $INPUT_FILE
+echo $OUTPUT_FILE
+
+cat $INPUT_FILE
+
+touch $OUTPUT_FILE
+echo '12' > "$OUTPUT_FILE"
+
+touch $DONE_FILE

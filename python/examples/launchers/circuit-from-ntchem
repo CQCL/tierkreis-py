@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+LAUNCHER_DIR=$(dirname "$0")
+printf "\n\n------ CIRCUIT FROM NTCHEM ------"
+INPUT_FILE=$(cat "$1" | jq -r '.inputs.ntchem_output')
+OUTPUT_FILE=$(cat "$1" | jq -r '.outputs.circuit')
+DONE_FILE=$(cat "$1" | jq -r '.done_path')
+
+echo $INPUT_FILE
+echo $OUTPUT_FILE
+
+cat $INPUT_FILE
+
+touch $OUTPUT_FILE
+echo '{"bits": [["c", [0]], ["c", [1]]], "commands": [{"args": [["q", [0]]], "op": {"params": ["0.2"], "type": "Rx"}}, {"args": [["q", [0]], ["q", [1]]], "op": {"type": "CX"}}, {"args": [["q", [0]], ["c", [0]]], "op": {"type": "Measure"}}, {"args": [["q", [1]]], "op": {"params": ["-0.7"], "type": "Rz"}}, {"args": [["q", [1]], ["c", [1]]], "op": {"type": "Measure"}}], "created_qubits": [], "discarded_qubits": [], "implicit_permutation": [[["q", [0]], ["q", [0]]], [["q", [1]], ["q", [1]]]], "phase": "0.0", "qubits": [["q", [0]], ["q", [1]]]}' > "$OUTPUT_FILE"
+
+touch $DONE_FILE

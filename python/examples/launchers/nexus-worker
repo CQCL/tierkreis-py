@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+LAUNCHER_DIR=$(dirname "$0")
+printf "\n\n------ NEXUS WORKER ------"
+set -a; . "$LAUNCHER_DIR/../nexus-worker/.env"; set +a
+uv run "$LAUNCHER_DIR/../nexus-worker" $1
