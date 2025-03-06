@@ -570,7 +570,7 @@ struct Internalize<'a, 'b> {
     rigid: bool,
 }
 
-impl<'a, 'b> Internalize<'a, 'b> {
+impl Internalize<'_, '_> {
     fn get_variable(&mut self, var: TypeVar, kind: Kind) -> Result<TypeId, InternalizeError> {
         match self.variables.get(&var) {
             Some((_, actual_kind)) if *actual_kind != kind => Err(InternalizeError::Kind),

@@ -890,7 +890,7 @@ struct Ancestors<'a> {
     visited: HashSet<TypeId>,
 }
 
-impl<'a> Iterator for Ancestors<'a> {
+impl Iterator for Ancestors<'_> {
     type Item = TypeId;
 
     fn next(&mut self) -> Option<Self::Item> {

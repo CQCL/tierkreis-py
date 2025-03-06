@@ -1,13 +1,15 @@
 import glob
 import os
+from pathlib import Path
 import subprocess
 
 from setuptools import build_meta as default_backend  # type : ignore
 
 # PEP 517 / 518 local (aka in-tree) backend for pip/build/etc.
 # We expect to be run from the project root, i.e. python/
-PROTO_INPUT_DIR = "./protos"
-PROTO_OUTPUT_DIR = "./tierkreis/core/protos"
+tierkreis_python_dir = Path(__file__).parent.parent.parent
+PROTO_INPUT_DIR = str(tierkreis_python_dir / "protos")
+PROTO_OUTPUT_DIR = str(tierkreis_python_dir / "tierkreis/core/protos")
 
 
 def generate_proto_code():
@@ -54,6 +56,7 @@ get_requires_for_build_sdist = default_backend.get_requires_for_build_sdist
 get_requires_for_build_wheel = default_backend.get_requires_for_build_wheel
 
 prepare_metadata_for_build_wheel = default_backend.prepare_metadata_for_build_wheel
+
 
 # PEP 660 defines additional hooks to support "pip install --editable":
 def build_editable(*args, **kwargs):

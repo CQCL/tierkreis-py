@@ -16,7 +16,6 @@ pub struct LocalWorker {
 
 impl LocalWorker {
     /// Creates a new instance with no functions (yet). See [add_function](Self::add_function)
-
     pub fn new() -> Self {
         Self {
             signature: Default::default(),
